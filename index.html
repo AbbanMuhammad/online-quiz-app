@@ -9,6 +9,16 @@
     </head>
 
     <body>
+        <!-- User Auth Modal -->
+        <div class="container" id="auth-screen">
+            <h2>Sign In or Register</h2>
+            <div id="auth-message" style="color: #ff4f4f; min-height: 22px;"></div>
+            <input type="text" id="auth-username" placeholder="Username" autocomplete="off">
+            <input type="password" id="auth-password" placeholder="Password" autocomplete="off">
+            <button id="login-btn">Login</button>
+            <button id="register-btn" style="background: #6dd16d;">Register</button>
+        </div>
+        <!-- End User Auth Modal -->
         <div class="container" id="home-screen">
             <h1>Welcome to the Online Quiz Application!</h1>
             <p>Test your knowledge on various topics.</p>
@@ -35,7 +45,7 @@
             <button id="restart-btn">Restart Quiz</button>
         </div>
 
-        <script src="script.js"></script>
+        <script src="scripts.js"></script>
     </body>
 
 </html>
