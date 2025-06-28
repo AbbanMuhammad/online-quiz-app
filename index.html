@@ -12,12 +12,16 @@
         <div class="container" id="home-screen">
             <h1>Welcome to the Online Quiz Application!</h1>
             <p>Test your knowledge on various topics.</p>
-            <button id="start-btn">Start Quiz</button>
+            <div id="topic-selection">
+                <h3>Select a Topic:</h3>
+                <div id="topics-list"></div>
+            </div>
         </div>
 
         <div class="container" id="quiz-screen" style="display: none;">
             <div id="quiz-header">
                 <span id="category"></span>
+                <span id="progress-bar"></span>
                 <span id="timer"></span>
             </div>
             <div id="question-box"></div>
