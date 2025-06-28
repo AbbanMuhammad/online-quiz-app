@@ -1,3 +1,93 @@
+// ==== 0. User Authentication ==== //
+let currentUser = null;
+
+// LocalStorage helpers
+function getUsers() {
+    return JSON.parse(localStorage.getItem('users') || '{}');
+}
+function saveUsers(users) {
+    localStorage.setItem('users', JSON.stringify(users));
+}
+
+// Auth Elements
+const authScreen = document.getElementById('auth-screen');
+const authMsg = document.getElementById('auth-message');
+const authUser = document.getElementById('auth-username');
+const authPass = document.getElementById('auth-password');
+const loginBtn = document.getElementById('login-btn');
+const registerBtn = document.getElementById('register-btn');
+
+function showAuth() {
+    authScreen.style.display = "flex";
+    homeScreen.style.display = "none";
+    quizScreen.style.display = "none";
+    resultScreen.style.display = "none";
+    authMsg.textContent = "";
+}
+function showHome() {
+    authScreen.style.display = "none";
+    homeScreen.style.display = "flex";
+}
+
+// Login
+loginBtn.onclick = function () {
+    const users = getUsers();
+    const u = authUser.value.trim();
+    const p = authPass.value;
+    if (users[u] && users[u].password === p) {
+        currentUser = u;
+        showHome();
+        renderTopics();
+    } else {
+        authMsg.textContent = "Invalid credentials.";
+    }
+};
+
+// Register
+registerBtn.onclick = function () {
+    const users = getUsers();
+    const u = authUser.value.trim();
+    const p = authPass.value;
+    if (!u || !p) {
+        authMsg.textContent = "Username and password required.";
+    } else if (users[u]) {
+        authMsg.textContent = "Username already exists.";
+    } else {
+        users[u] = { password: p, scores: {} };
+        saveUsers(users);
+        authMsg.textContent = "Registered! Please log in.";
+    }
+};
+
+// On load, show login
+window.onload = showAuth;
+
+// ==== (Keep the rest of your quiz code below, and wherever you need to record score/history, do this:) ==== //
+// When quiz ends:
+function showResult() {
+    quizScreen.style.display = "none";
+    resultScreen.style.display = "flex";
+    resultSummary.innerHTML = `
+        <p>Your Score: <strong>${score}</strong> / ${questions.length}</p>
+        <p>Percentage: <strong>${Math.round((score / questions.length) * 100)}%</strong></p>
+    `;
+
+    // Store score in user history
+    if (currentUser) {
+        const users = getUsers();
+        if (!users[currentUser].scores) users[currentUser].scores = {};
+        if (!users[currentUser].scores[currentTopic]) users[currentUser].scores[currentTopic] = [];
+        users[currentUser].scores[currentTopic].push({
+            score,
+            total: questions.length,
+            date: new Date().toISOString()
+        });
+        saveUsers(users);
+    }
+}
+
+// ==== (You may also want a logout button! Add this in your HTML and JS as needed) ==== //
+
 // ==== 1. Questions Organized by Topic ==== //
 const quizData = {
     "English": [
