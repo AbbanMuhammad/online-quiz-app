@@ -27,9 +27,18 @@
         <img src="./assets/nabteb.png" alt="nabteb logo" onclick="openquiz('nabteb')">
       </div>
 
-      
+    
     </div>
 
-    <script src="script.js~"></script>
+    <script >
+      const openquiz = (quizName) => {
+        localStorage.clear;
+
+        localStorage.setItem('quizType', quizName);
+        localStorage.setItem('questionNumber', 1);
+        localStorage.setItem('score', 0);
+        window.location.href="quiz.html"
+      }
+    </script>
   </body>
 </html>
