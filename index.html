@@ -7,38 +7,50 @@
     <title>Online Quiz</title>
   </head>
   <body>
-    <div class="heading">
-      <h1> <h1>Online Quiz App</h1>
-      <div class="line"></div>
-      <p>Choose Your exam type to begin</p>
-      <div class="line"></div>
+    <div class="bacground-image">
+      <div class="overlay">
+        <div class="container-one">
+          <h1>Online Quiz App</h1>
+          <div class="line"></div>
+          <p>Choose Your exam type to begin</p>
+          <div class="line"></div>
+        </div>
+        <!-- <div class="container-two">
+          <div class="card1">
+            <img
+              src="./assets/waec.png"
+              alt="waec logo"
+              onclick="openquiz('waec')"
+            />
+          </div>
+
+          <div class="card1">
+            <img
+              src="./assets/neco.png"
+              alt="neco logo"
+              onclick="openquiz('neco')"
+            />
+          </div>
+
+          <div class="card1">
+            <img
+              src="./assets/nabteb.png"
+              alt="nabteb logo"
+              onclick="openquiz('nabteb')"
+            />
+          </div>
+        </div> -->
+      </div>
     </div>
-
-    <div class="quiz-selection">
-      <div class="card1">
-        <img src="./assets/waec.png" alt="waec logo" onclick="openquiz('waec')">
-      </div>
-
-      <div class="card1">
-        <img src="./assets/neco.png" alt="neco logo" onclick="openquiz('neco')">
-      </div>
-
-      <div class="card1">
-        <img src="./assets/nabteb.png" alt="nabteb logo" onclick="openquiz('nabteb')">
-      </div>
-
-    
-    </div>
-
-    <script >
+    <script>
       const openquiz = (quizName) => {
         localStorage.clear;
 
-        localStorage.setItem('quizType', quizName);
-        localStorage.setItem('questionNumber', 1);
-        localStorage.setItem('score', 0);
-        window.location.href="quiz.html"
-      }
+        localStorage.setItem("quizType", quizName);
+        localStorage.setItem("questionNumber", 1);
+        localStorage.setItem("score", 0);
+        window.location.href = "quiz.html";
+      };
     </script>
   </body>
 </html>
