@@ -2,12 +2,33 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initialscale=1.0" />
     <link rel="stylesheet" href="style.css" />
-    <title>Online Quiz <Applet></Applet></title>
+    <title>Online Quiz</title>
   </head>
   <body>
-    <h1>online Quiz App</h1>
+    <div class="heading">
+      <h1> <h1>Online Quiz App</h1>
+      <div class="line"></div>
+      <p>Choose Your exam type to begin</p>
+      <div class="line"></div>
+    </div>
+
+    <div class="quiz-selection">
+      <div class="card1">
+        <img src="./assets/waec.png" alt="waec logo" onclick="openquiz('waec')">
+      </div>
+
+      <div class="card1">
+        <img src="./assets/neco.png" alt="neco logo" onclick="openquiz('neco')">
+      </div>
+
+      <div class="card1">
+        <img src="./assets/nabteb.png" alt="nabteb logo" onclick="openquiz('nabteb')">
+      </div>
+
+      
+    </div>
 
     <script src="script.js~"></script>
   </body>
