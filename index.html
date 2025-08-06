@@ -2,12 +2,12 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initialscale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
     <title>Online Quiz</title>
   </head>
   <body>
-    <div class="bacground-image">
+    <div class="background-image">
       <div class="overlay">
         <div class="container-one">
           <h1>Online Quiz App</h1>
@@ -15,36 +15,22 @@
           <p>Choose Your exam type to begin</p>
           <div class="line"></div>
         </div>
-        <!-- <div class="container-two">
-          <div class="card1">
-            <img
-              src="./assets/waec.png"
-              alt="waec logo"
-              onclick="openquiz('waec')"
-            />
+        <div class="container-two">
+          <div class="card1" onclick="openquiz('waec')">
+            <img src="./assets/waec.png" alt="waec logo" />
           </div>
-
-          <div class="card1">
-            <img
-              src="./assets/neco.png"
-              alt="neco logo"
-              onclick="openquiz('neco')"
-            />
+          <div class="card1" onclick="openquiz('neco')">
+            <img src="./assets/neco.png" alt="neco logo" />
           </div>
-
-          <div class="card1">
-            <img
-              src="./assets/nabteb.png"
-              alt="nabteb logo"
-              onclick="openquiz('nabteb')"
-            />
+          <div class="card1" onclick="openquiz('nabteb')">
+            <img src="./assets/nabteb.png" alt="nabteb logo" />
           </div>
-        </div> -->
+        </div>
       </div>
     </div>
     <script>
       const openquiz = (quizName) => {
-        localStorage.clear;
+        localStorage.clear();
 
         localStorage.setItem("quizType", quizName);
         localStorage.setItem("questionNumber", 1);

@@ -7,9 +7,31 @@
 body {
   width: 100%;
   height: 100vh;
+  /* display: flex;
+  flex-direction: column;
+  justify-content: center; */
+  position: relative;
+}
+
+.background-image {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+}
+
+.overlay {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+  z-index: 1;
+  overflow: auto;
 }
 
 body::before {
@@ -39,5 +61,76 @@ body::before {
   color: rgb(2, 0, 119);
   font-weight: 400;
   font-family: serif;
-  font-style: normal;
+}
+
+.container-one p {
+  font-size: 20px;
+  color: rgb(15, 12, 207);
+  font-weight: 600;
+}
+
+.line {
+  width: 300px;
+  height: 2px;
+  background-color: rgb(15, 12, 207);
+  margin: 10px 0;
+}
+
+.container-two {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.container-two .card1 {
+  width: 350px;
+  height: 400px;
+  background-color: rgb(15, 12, 207);
+  border-radius: 10px;
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-two .card1 img {
+  width: 95%;
+  object-fit: cover;
+}
+
+.card1:hover {
+  transform: scale(1.05);
+  transition: 1s;
+  cursor: pointer;
+  box-shadow: 0px 0px 10px 2px rgb(255, 240, 29);
+}
+
+/* ...existing code... */
+
+@media (max-width: 768px) {
+  .container-one h1 {
+    font-size: 40px;
+  }
+
+  .line {
+    width: 150px;
+  }
+
+  .container-two {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .container-two .card1 {
+    width: 90vw;
+    height: 250px;
+    margin: 10px 0;
+  }
+
+  .container-two .card1 img {
+    width: 80%;
+  }
 }
